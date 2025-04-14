@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
+import Sidebar from "@/components/sidebar";
 
 const interSans = Inter({
   weight: ["400", "500", "600", "700"],
@@ -27,8 +28,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="pr-BR">
-      <body
-        className={`${interSans.variable} ${interMono.variable} antialiased bg-gray-100`}      >
+      <body suppressHydrationWarning
+        className={`${interSans.variable} ${interMono.variable} antialiased bg-gray-100 flex `}      >
+          <Sidebar/>
         {children}
       </body>
     </html>
