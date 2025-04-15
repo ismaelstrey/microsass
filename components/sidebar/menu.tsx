@@ -14,6 +14,7 @@ export default function Menu() {
         <Link href="/login">Login</Link>
         <Link href="/dashboard">Dashboard</Link>
         <Link href="/usuarios">Usuarios</Link>
+        <Link href="/pagamento">Pagamentos</Link>
       </div>
     </motion.div>
   

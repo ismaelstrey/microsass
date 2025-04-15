@@ -16,7 +16,7 @@ export default async function Usuario() {
 const {email,id,image,name,emailVerified } = session?.user as UserProps || {}
 
   return (
-    <div className="fixed top-2 right-4 flex items-center justify-center">
+    <div id={id || ''} className="fixed top-2 right-4 flex items-center justify-center">
        {image &&  <Image className="rounded-full size-16" unoptimized src={image} width={100} height={100} alt=""/>}
      { name && email && <UsuarioDetalhes name={name} email={email} emailVerified={emailVerified || false}/>}
        <SignIn autenticado/>
