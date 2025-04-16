@@ -3,10 +3,11 @@ import stripe from "@/lib/stripe";
 import { getOrCreateCustomerId } from "@/server/stripe/get-customer-id";
 import { NextRequest, NextResponse } from "next/server";
 
-
 export async function POST(req: NextRequest) {
-    const { testeId } = await req.json();
+    const price = process.env.STRIPE_SUBSCRIPTION_PRICE_ID!;
 
+    const { testeId } = await req.json();
+   
 const session = await auth()
 
     const userId = session?.user?.id;
@@ -15,7 +16,9 @@ const session = await auth()
         return NextResponse.json({ error: "Unauthorized", status: 401 });
     }
     const metadata = {
-        testeId
+        testeId,
+        price,
+        userId,
     }
 
     //precisamor cria um cliente aaqui
@@ -26,7 +29,7 @@ const session = await auth()
         return NextResponse.json({ error: "Customer not found", status: 500 });
     }
 
-    const price = process.env.STRIPE_SUBSCRIPTION_PRICE_ID!;
+
 
     if (!price) {
         return NextResponse.json({ error: "Price not found", status: 500 });
