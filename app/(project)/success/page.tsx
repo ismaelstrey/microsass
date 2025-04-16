@@ -1,4 +1,3 @@
-import SignIn from "@/components/auth/sign-in";
 import Usuario from "@/components/usuario/usuario";
 import { auth } from "@/lib/auth";
 

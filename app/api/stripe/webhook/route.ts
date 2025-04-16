@@ -30,8 +30,7 @@ export async function POST(req: NextRequest) {
             case "checkout.session.expired": //pago com boleto
             console.log("pagamento expirado") //pode enciar um email para o usuario avisar que o pagamento expirou
             break; 
-            case "checkout.session.async_payment_succeeded"://boleto pago
-            const price = process.env.STRIPE_SUBSCRIPTION_PRICE_ID!;
+            case "checkout.session.async_payment_succeeded"://boleto pago          
             console.log("pagamento confirmado com boleto") //pode enciar um email para o usuario avisar que o pagamento foi confirmado
             break; 
             case "checkout.session.async_payment_failed": //boleto não pago
